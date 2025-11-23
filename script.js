@@ -1,12 +1,11 @@
 fetch("questions.json")
-  .then(repoonse => repoonse.json())
-  .then(data=>{
+  .then((repoonse) => repoonse.json())
+  .then((data) => {
     questions = data;
     console.log(data);
     console.log(questions.length);
-    
-    
-  }).catch(error => console.error(error));
+  })
+  .catch((error) => console.error(error));
 
 document.getElementById("startBtn").addEventListener("click", function () {
   let username = document.getElementById("userName").value;
@@ -19,28 +18,38 @@ document.getElementById("startBtn").addEventListener("click", function () {
   loadQuestions();
 });
 
-document.querySelector(".nextBtn").addEventListener("click",function(){
+document.querySelector(".nextBtn").addEventListener("click", function () {
   index++;
   setQuestionStats();
   loadQuestions();
-})
+});
 
 //set question stats
-function setQuestionStats(){
-  document.getElementById("questionStat").textContent = `${index+1}/${questions.length}`;
+function setQuestionStats() {
+  document.getElementById("questionStat").textContent = `${index + 1}/${
+    questions.length
+  }`;
 }
 
 function setTimerOn() {
-  let time = 57;
-  setInterval(() => {
-    document.querySelector(".timer").textContent = `00:${time}`;
-    time--;
-  }, 1000);
+  let time = 10;
+    const intervalId = setInterval(() => {
+      if(time==-1){
+        clearInterval(intervalId);
+        index++;
+        loadQuestions();
+        setQuestionStats();
+        setTimerOn();
+      }else{
+        document.querySelector(".timer").textContent = `00:${time}`;
+        time--;
+      }
+    }, 1000);
+
 }
 
-
-function loadQuestions(){
-  document.querySelector('.quizzContainer').innerHTML=`
+function loadQuestions() {
+  document.querySelector(".quizzContainer").innerHTML = `
        <div class="questionText">
             <p>${questions[index].question}</p>
           </div>
@@ -71,7 +80,7 @@ function loadQuestions(){
               </label>
             </div>
           </div>
-  `
+  `;
 }
 
 let questions;

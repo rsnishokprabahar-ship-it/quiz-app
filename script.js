@@ -3,6 +3,8 @@ fetch("questions.json")
   .then(data=>{
     questions = data;
     console.log(data);
+    console.log(questions.length);
+    
     
   }).catch(error => console.error(error));
 
@@ -13,13 +15,20 @@ document.getElementById("startBtn").addEventListener("click", function () {
   document.querySelector(".loginPage").style.display = "none";
   document.querySelector(".quizzPage").style.display = "block";
   setTimerOn();
+  setQuestionStats();
   loadQuestions();
 });
 
 document.querySelector(".nextBtn").addEventListener("click",function(){
   index++;
+  setQuestionStats();
   loadQuestions();
 })
+
+//set question stats
+function setQuestionStats(){
+  document.getElementById("questionStat").textContent = `${index+1}/${questions.length}`;
+}
 
 function setTimerOn() {
   let time = 57;

@@ -9,6 +9,11 @@ fetch("questions.json")
 
 document.getElementById("startBtn").addEventListener("click", function () {
   let username = document.getElementById("userName").value;
+  if(username==""){
+    document.getElementById("userName").style.border = "1px solid red";
+    document.querySelector('#errorMsg').style.display = 'block';
+    return;
+  }
   document.querySelector(".userText").textContent = username;
   console.log(username);
   document.querySelector(".loginPage").style.display = "none";

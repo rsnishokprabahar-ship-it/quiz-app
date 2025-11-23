@@ -16,6 +16,11 @@ document.getElementById("startBtn").addEventListener("click", function () {
   loadQuestions();
 });
 
+document.querySelector(".nextBtn").addEventListener("click",function(){
+  index++;
+  loadQuestions();
+})
+
 function setTimerOn() {
   let time = 57;
   setInterval(() => {
@@ -26,34 +31,34 @@ function setTimerOn() {
 
 
 function loadQuestions(){
-  document.querySelector('.quizzContainer').innerHTML+=`
+  document.querySelector('.quizzContainer').innerHTML=`
        <div class="questionText">
-            <p>${questions[1].question}</p>
+            <p>${questions[index].question}</p>
           </div>
           
           <div class="quizes">
             <div class="questions">
               <label>
-                <input type="radio" name="question1" />
-                ${questions[1].options[0]}
+                <input type="radio" name="question${index}" />
+                ${questions[index].options[0]}
               </label>
             </div>
             <div class="questions">
               <label>
-                <input type="radio" name="question1" />
-                ${questions[1].options[1]}
+                <input type="radio" name="question${index}" />
+                ${questions[index].options[1]}
               </label>
             </div>
             <div class="questions">
               <label>
-                <input type="radio" name="question1" />
-                ${questions[1].options[2]}
+                <input type="radio" name="question${index}" />
+                ${questions[index].options[2]}
               </label>
             </div>
             <div class="questions">
               <label>
-                <input type="radio" name="question1" />
-                ${questions[1].options[3]}
+                <input type="radio" name="question${index}" />
+                ${questions[index].options[3]}
               </label>
             </div>
           </div>
@@ -61,3 +66,4 @@ function loadQuestions(){
 }
 
 let questions;
+let index = 0;

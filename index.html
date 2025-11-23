@@ -3,15 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quizz App</title>
+    <title>Quiz App</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <nav>
-      <img src="assets/logo.png" alt="" />
-      <p class="userName">test</p>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/logo.png" alt="Logo" />
+        <h3>QuizApp</h3>
+      </div>
+      <p class="userText">User: Guest</p>
     </nav>
-    <main>
+
+    <main class="loginPage">
       <img
         class="backgroundImg"
         src="assets/q-faq-concept-with-tiny-people-characters-big-question-mark-vector-illustration_746655-9563.jpg"
@@ -19,41 +23,59 @@
       />
       <div class="container">
         <h2>Login</h2>
-        <img src="assets/cardLogo.png" alt="" />
-        <input type="text" placeholder="Enter your name" />
-        <button>Start</button>
+        <img src="assets/cardLogo.png" alt="User Icon" />
+        <input type="text" placeholder="Enter your name" id="userName" />
+        <button id="startBtn">Start Quiz</button>
       </div>
     </main>
 
-    <div class="quizzPage">
-      <div class="timer">00:57</div>
-
-      <div class="quizzContainer">
+    <div class="quizzPage" style="display: none;"> 
+      <div class="quizWrapper">
+        <div class="timer">00:57</div>
+        
         <div class="questionNumber">
-          <p>Questions <span>0/10</span></p>
+          <p>Question <span>1/10</span></p>
         </div>
 
-        <div class="questionText">
-          <p>1. What does HTML stand For?</p>
+        <div class="quizzContainer">
+          <div class="questionText">
+            <p>1. What does HTML stand For?</p>
+          </div>
+          
+          <div class="quizes">
+            <div class="questions">
+              <label>
+                <input type="radio" name="question1" />
+                Hyper Text Markup Language
+              </label>
+            </div>
+            <div class="questions">
+              <label>
+                <input type="radio" name="question1" />
+                Hyperlinks and Text Markup Language
+              </label>
+            </div>
+            <div class="questions">
+              <label>
+                <input type="radio" name="question1" />
+                Home Tool Markup Language
+              </label>
+            </div>
+            <div class="questions">
+              <label>
+                <input type="radio" name="question1" />
+                Hyper Text Makeup Language
+              </label>
+            </div>
+          </div>
         </div>
-        <div class="quizes">
-          <div class="questions">
-            <label><input type="radio" name="question1">HTML stands for Hyper Text Markup Language</label>
-          </div>
-          <div class="questions">
-            <label> <input type="radio" name="question1">HTML stands for Hyperlinks and Text Markup Language</label>
-          </div>
-          <div class="questions">
-          </div>
-          <div class="questions">
-           <label> <input type="radio" name="question1">HTML stands for Hyper Text Markup Language</label>
-          </div>
-          <div class="questions">
-            <label> <input type="radio" name="question1">HTML stands for Hyper Text Markup Language</label>
-          </div>
+
+        <div class="nextBtn">
+          <button type="submit">Next Question</button>
         </div>
-        <button type="submit">Next</button>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

@@ -137,7 +137,9 @@ button:hover {
 }
 
 .timer {
-  align-self: flex-end;
+  position: absolute;
+  top: 70px;
+  right: 20px;
   font-size: 18px;
   font-weight: bold;
   color: white;

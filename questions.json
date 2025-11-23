@@ -1,0 +1,58 @@
+[
+  {
+    "number": 1,
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "Hyperlinks and Text Markup Language",
+      "Home Tool Markup Language",
+      "Markup Hyper Text Language"
+    ],
+    "answer": "Hyper Text Markup Language"
+  },
+    {
+    "number": 2,
+    "question": "What does CSS stand for?",
+    "options": [
+      "Cascading Style Sheets",
+      "Colorful Style Sheets",
+      "Computer Style Sheets",
+      "Creative Style Sheets"
+    ],
+    "answer": "Cascading Style Sheets"
+  },
+    {
+    "number": 3,
+    "question": "What does JS stand for?",
+    "options": [
+      "JavaScript",
+      "JavaServer Pages",
+      "JSON",
+      "JQuery"
+    ],
+    "answer": "JavaScript"
+  },
+    {
+    "number": 4,
+    "question": "What does JSON stand for?",
+    "options": [
+      "JavaScript Object Notation",
+      "JavaServer Object Notation",
+      "JSON Object Notation",
+      "JQuery Object Notation"
+    ],
+    "answer": "JavaScript Object Notation"
+  },
+    {
+    "number": 5,
+    "question": "What does JQuery stand for?",
+    "options": [
+      "JavaScript Object Notation",
+      "JavaServer Object Notation",
+      "JSON Object Notation",
+      "JQuery Object Notation"
+    ],
+    "answer": "JQuery Object Notation"
+  }
+]
+

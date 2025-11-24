@@ -39,7 +39,7 @@ function setQuestionStats() {
 function setTimerOn() {
   let time = 10;
   const intervalId = setInterval(() => {
-    if (time == -1) {
+    if (time == -1 && index < questions.length) {
       clearInterval(intervalId);
       index++;
       loadQuestions();
@@ -62,25 +62,26 @@ function loadQuestions() {
           <div class="quizes">
             <div class="questions">
               <label>
-                <input type="radio" name="question${index}" />
+                <input type="radio" name="question${index}" value="${questions[index].options[0]}" />
                 ${questions[index].options[0]}
+
               </label>
             </div>
             <div class="questions">
               <label>
-                <input type="radio" name="question${index}" />
+                <input type="radio" name="question${index}" value="${questions[index].options[1]}" />
                 ${questions[index].options[1]}
               </label>
             </div>
             <div class="questions">
               <label>
-                <input type="radio" name="question${index}" />
+                <input type="radio" name="question${index}" value="${questions[index].options[2]}" />
                 ${questions[index].options[2]}
               </label>
             </div>
             <div class="questions">
               <label>
-                <input type="radio" name="question${index}" />
+                <input type="radio" name="question${index}" value="${questions[index].options[3]}" />
                 ${questions[index].options[3]}
               </label>
             </div>
@@ -89,8 +90,10 @@ function loadQuestions() {
   } else {
     document.querySelector(".quizzPage").style.display = "none";
     document.querySelector(".resultPage").style.display = "block";
+    console.log("load questions",answers);
   }
 }
 
 let questions;
 let index = 0;
+let answers = [];

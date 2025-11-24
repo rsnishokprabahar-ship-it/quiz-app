@@ -9,9 +9,9 @@ fetch("questions.json")
 
 document.getElementById("startBtn").addEventListener("click", function () {
   let username = document.getElementById("userName").value;
-  if(username==""){
+  if (username == "") {
     document.getElementById("userName").style.border = "1px solid red";
-    document.querySelector('#errorMsg').style.display = 'block';
+    document.querySelector("#errorMsg").style.display = "block";
     return;
   }
   document.querySelector(".userText").textContent = username;
@@ -38,23 +38,23 @@ function setQuestionStats() {
 
 function setTimerOn() {
   let time = 10;
-    const intervalId = setInterval(() => {
-      if(time==-1){
-        clearInterval(intervalId);
-        index++;
-        loadQuestions();
-        setQuestionStats();
-        setTimerOn();
-      }else{
-        document.querySelector(".timer").textContent = `00:${time}`;
-        time--;
-      }
-    }, 1000);
-
+  const intervalId = setInterval(() => {
+    if (time == -1) {
+      clearInterval(intervalId);
+      index++;
+      loadQuestions();
+      setQuestionStats();
+      setTimerOn();
+    } else {
+      document.querySelector(".timer").textContent = `00:${time}`;
+      time--;
+    }
+  }, 1000);
 }
 
 function loadQuestions() {
-  document.querySelector(".quizzContainer").innerHTML = `
+  if (index < questions.length) {
+    document.querySelector(".quizzContainer").innerHTML = `
        <div class="questionText">
             <p>${questions[index].question}</p>
           </div>
@@ -86,6 +86,10 @@ function loadQuestions() {
             </div>
           </div>
   `;
+  } else {
+    document.querySelector(".quizzPage").style.display = "none";
+    document.querySelector(".resultPage").style.display = "block";
+  }
 }
 
 let questions;

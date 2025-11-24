@@ -38,14 +38,14 @@ function setQuestionStats() {
 }
 
 function setTimerOn() {
+  clearInterval(intervalId);
   let time = 10;
-  const intervalId = setInterval(() => {
+  intervalId = setInterval(() => {
     if (time == -1 && index < questions.length) {
       clearInterval(intervalId);
       index++;
       loadQuestions();
       setQuestionStats();
-      setTimerOn();
     } else {
       document.querySelector(".timer").textContent = `00:${time}`;
       time--;
@@ -55,6 +55,7 @@ function setTimerOn() {
 
 function loadQuestions() {
   if (index < questions.length) {
+    setTimerOn();
     document.querySelector(".quizzContainer").innerHTML = `
        <div class="questionText">
             <p>${questions[index].question}</p>
@@ -91,6 +92,7 @@ function loadQuestions() {
   } else {
     document.querySelector(".quizzPage").style.display = "none";
     document.querySelector(".resultPage").style.display = "block";
+    validateResults();
     console.log("load questions",answers);
   }
 }
@@ -99,7 +101,7 @@ function getSelectedAnswer(index) {
   let answer = document.getElementsByName(`question${index}`);
   for(index of answer){
     if(index.checked){
-      // answers.push(index.value);
+       answers.push(index.value);
       console.log(index.value);
       
     }
@@ -109,3 +111,4 @@ function getSelectedAnswer(index) {
 let questions;
 let index = 0;
 let answers = [];
+let intervalId = null;

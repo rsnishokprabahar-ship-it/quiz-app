@@ -108,6 +108,37 @@ function getSelectedAnswer(index) {
   }
 }
 
+function validateResults(){
+  console.log("called validateresults");
+  
+  let score =0 ;
+  for(let i =0; i<questions.length; i++){
+    if(answers[i] == questions[i].answer){
+      score++;
+    }
+  }
+  document.getElementById("userScore").textContent = score;
+  console.log("score",score);
+  
+  document.getElementById("totalScore").textContent = questions.length;
+}
+
+  document.querySelector(".replayBtn").addEventListener('click',function(){
+    document.querySelector(".resultPage").style.display = "none";
+    document.querySelector(".quizzPage").style.display = "block";
+    index = 0;
+    answers = [];
+    setQuestionStats();
+    loadQuestions();
+  })
+
+  document.querySelector(".quitBtn").addEventListener('click',function(){
+    document.querySelector(".resultPage").style.display = "none";
+    document.querySelector(".loginPage").style.display = "flex";
+    index = 0;
+    answers = [];
+  })
+
 let questions;
 let index = 0;
 let answers = [];

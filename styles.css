@@ -221,3 +221,91 @@ button:hover {
 .nextBtn button {
   width: 150px;
 }
+
+/* --- Result Page --- */
+.resultPage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 400px; 
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.imgIcon img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.resultContainer h3 {
+  font-size: 24px;
+  color: var(--dark-text);
+}
+
+.scoreText p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.scoreCircle {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--green-color);
+  background-color: var(--light-blue-color);
+  padding: 20px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 2px solid var(--green-color);
+}
+
+.resultButtons {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.replayBtn {
+  background-color: var(--green-color);
+}
+
+.quitBtn {
+  background-color: white;
+  color: var(--green-color);
+  border: 1px solid var(--green-color);
+}
+
+.quitBtn:hover {
+  background-color: var(--green-color);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

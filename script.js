@@ -24,6 +24,7 @@ document.getElementById("startBtn").addEventListener("click", function () {
 });
 
 document.querySelector(".nextBtn").addEventListener("click", function () {
+  getSelectedAnswer(index);
   index++;
   setQuestionStats();
   loadQuestions();
@@ -91,6 +92,17 @@ function loadQuestions() {
     document.querySelector(".quizzPage").style.display = "none";
     document.querySelector(".resultPage").style.display = "block";
     console.log("load questions",answers);
+  }
+}
+
+function getSelectedAnswer(index) {
+  let answer = document.getElementsByName(`question${index}`);
+  for(index of answer){
+    if(index.checked){
+      // answers.push(index.value);
+      console.log(index.value);
+      
+    }
   }
 }
 

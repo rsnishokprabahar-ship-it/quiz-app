@@ -39,7 +39,7 @@ function setQuestionStats() {
 
 function setTimerOn() {
   clearInterval(intervalId);
-  let time = 10;
+  let time = 29;
   intervalId = setInterval(() => {
     if (time == -1 && index < questions.length) {
       clearInterval(intervalId);

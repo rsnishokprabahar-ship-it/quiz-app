@@ -3,102 +3,85 @@ let index = 0;
 let answers = [];
 let intervalId = null;
 
+// Fetch the questions you've prepared
 fetch("questions.json")
-  .then((response) => response.json())
-  .then((data) => {
+  .then(res => res.json())
+  .then(data => {
     questions = data;
-    setQuestionStats();
+    document.getElementById("questionStat").textContent = `Loaded: ${questions.length} Qs`;
   })
-  .catch((error) => console.error("Error loading questions:", error));
+  .catch(err => console.error("Fuel tank empty! Update questions.json", err));
 
-document.getElementById("startBtn").addEventListener("click", function () {
-  let username = document.getElementById("userName").value;
-  if (username == "") {
-    document.getElementById("userName").style.border = "1px solid red";
-    document.querySelector("#errorMsg").style.display = "block";
-    return;
-  }
-  document.querySelector(".userText").textContent = username;
+document.getElementById("startBtn").addEventListener("click", () => {
+  if (!document.getElementById("userName").value) return alert("Enter Name");
   document.querySelector(".loginPage").style.display = "none";
   document.querySelector(".quizzPage").style.display = "block";
-  loadQuestions();
+  loadQuestion();
 });
 
-document.querySelector(".nextBtn").addEventListener("click", function () {
-  const selected = document.querySelector(`input[name="question${index}"]:checked`);
-  answers[index] = selected ? selected.value : "No Answer";
-  
-  index++;
-  if (index < questions.length) {
-    loadQuestions();
-    setQuestionStats();
-  } else {
-    showResults();
-  }
-});
-
-function setQuestionStats() {
-  document.getElementById("questionStat").textContent = `${index + 1}/${questions.length}`;
-}
-
-function setTimerOn() {
+function loadQuestion() {
   clearInterval(intervalId);
-  let time = 30;
-  intervalId = setInterval(() => {
-    if (time <= 0) {
-      clearInterval(intervalId);
-      document.querySelector(".nextBtn").click();
-    } else {
-      document.querySelector(".timer").textContent = `00:${time < 10 ? '0' + time : time}`;
-      time--;
-    }
-  }, 1000);
-}
+  if (index >= questions.length) return showResults();
 
-function loadQuestions() {
-  setTimerOn();
   const q = questions[index];
+  document.getElementById("questionStat").textContent = `${index + 1} / ${questions.length}`;
+  
   document.querySelector(".quizzContainer").innerHTML = `
     <div class="questionText"><p>${q.question}</p></div>
     <div class="quizes">
       ${q.options.map(opt => `
         <div class="questions">
-          <label><input type="radio" name="question${index}" value="${opt}" /> ${opt}</label>
+          <label><input type="radio" name="quizOpt" value="${opt}"> ${opt}</label>
         </div>`).join('')}
     </div>`;
+  
+  startTimer();
+}
+
+function startTimer() {
+  let time = 30; // 30 seconds per question for SBI PO speed
+  intervalId = setInterval(() => {
+    document.querySelector(".timer").textContent = `00:${time < 10 ? '0'+time : time}`;
+    if (time <= 0) { clearInterval(intervalId); handleNext(); }
+    time--;
+  }, 1000);
+}
+
+document.querySelector(".nextBtn").addEventListener("click", handleNext);
+
+function handleNext() {
+  const selected = document.querySelector('input[name="quizOpt"]:checked');
+  answers[index] = selected ? selected.value : "Skipped";
+  index++;
+  loadQuestion();
 }
 
 function showResults() {
-  clearInterval(intervalId);
   document.querySelector(".quizzPage").style.display = "none";
   document.querySelector(".resultPage").style.display = "block";
-  
   let score = 0;
-  let reviewHtml = "<h3>Review Your Answers:</h3>";
-  
+  let reviewHTML = `<div style="text-align:left; margin-top:20px;"><h3>Wrong Answer Analysis:</h3>`;
+
   questions.forEach((q, i) => {
-    const isCorrect = answers[i] === q.answer;
+    const isCorrect = q.answer === answers[i];
     if (isCorrect) score++;
-    
-    reviewHtml += `
-      <div style="margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #ddd;">
-        <p><strong>Q${i+1}: ${q.question}</strong></p>
-        <p style="color: ${isCorrect ? 'green' : 'red'}">Your Answer: ${answers[i]}</p>
-        ${!isCorrect ? `<p style="color: green">Correct Answer: ${q.answer}</p>` : ''}
-      </div>`;
+    else {
+      reviewHTML += `
+        <div style="border-bottom: 1px solid #ff4d4d; padding: 10px; background: #fffafa;">
+          <p><strong>${i+1}. ${q.question}</strong></p>
+          <p style="color: red;">Your Choice: ${answers[i]}</p>
+          <p style="color: green;">Correct Fact: ${q.answer}</p>
+        </div>`;
+    }
   });
 
   document.getElementById("userScore").textContent = score;
   document.getElementById("totalScore").textContent = questions.length;
   
-  // Create a review div if it doesn't exist
-  let reviewDiv = document.getElementById("reviewContainer");
-  if(!reviewDiv) {
-    reviewDiv = document.createElement("div");
-    reviewDiv.id = "reviewContainer";
-    document.querySelector(".resultPage").appendChild(reviewDiv);
-  }
-  reviewDiv.innerHTML = reviewHtml;
+  let container = document.getElementById("reviewBox") || document.createElement("div");
+  container.id = "reviewBox";
+  document.querySelector(".resultPage").appendChild(container);
+  container.innerHTML = score === questions.length ? "<h4>Perfect Score! 🎯</h4>" : reviewHTML;
 }
 
 document.querySelector(".replayBtn").addEventListener('click', () => location.reload());

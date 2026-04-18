@@ -4,8 +4,7 @@ function showResults() {
   if(index < questions.length) answers[index] = selected ? selected.value : "Not Answered";
 
   document.querySelector(".quizzPage").style.display = "none";
-  const resultPage = document.querySelector(".resultPage");
-  resultPage.style.display = "block";
+  document.querySelector(".resultPage").style.display = "block";
 
   let correctCount = 0;
   let wrongCount = 0;
@@ -15,26 +14,15 @@ function showResults() {
   });
   let netScore = (correctCount * 1) - (wrongCount * 0.25);
 
-  // This replaces everything with the new clean CSS layout
-  resultPage.innerHTML = `
-    <div class="result-card">
-      <h2>Results</h2>
-      <div class="score-container">
-        <div style="display:flex; justify-content: space-around; margin-bottom: 10px;">
-           <span style="color:green">Right: ${correctCount}</span>
-           <span style="color:red">Wrong: ${wrongCount}</span>
-        </div>
-        <p style="font-size: 0.8rem; color: #7f8c8d;">NET SCORE</p>
-        <span class="net-score-val">${netScore.toFixed(2)}</span>
-      </div>
-      
-      <div style="display:flex; gap:10px; justify-content:center;">
-        <button class="replayBtn" onclick="location.reload()">Replay</button>
-        <button class="submitBtn" onclick="window.location.href='https://github.com'">Quit</button>
-      </div>
-
-      <div id="reviewBox"></div>
-    </div>
+  // We are injecting the full layout into the userScore div
+  document.getElementById("userScore").innerHTML = `
+    <div style="color: #27ae60; font-weight: bold; font-size: 1.1rem;">Correct: ${correctCount}</div>
+    <div style="color: #e74c3c; font-weight: bold; font-size: 1.1rem;">Wrong: ${wrongCount}</div>
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+    <div style="color: #7f8c8d; font-size: 0.9rem; text-transform: uppercase;">Net Score</div>
+    <div style="font-size: 3rem; font-weight: 800; color: #2c3e50; margin: 5px 0;">${netScore.toFixed(2)}</div>
+    <div style="color: #bdc3c7;">out of ${questions.length}</div>
   `;
+
   startReview();
 }

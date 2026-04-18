@@ -1,27 +1,20 @@
-/* Update the score display area */
-.resultPage {
-    text-align: center;
-    padding: 20px;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background: #f4f4f4; padding: 20px; display: flex; justify-content: center; }
+#app-container { width: 100%; max-width: 450px; background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-/* This replaces the tight circle with a flexible card */
-#userScore {
-    display: block;
-    background: #ffffff;
-    border: 2px solid #27ae60;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 300px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+.loginPage, .quizzPage, .resultPage { display: none; text-align: center; }
+.header { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; }
+.timer { color: red; }
 
-#userScore div {
-    margin: 10px 0;
-}
+.questionText { font-size: 1.2rem; margin-bottom: 20px; text-align: left; }
+.questions { margin-bottom: 10px; text-align: left; }
+.questions label { display: block; padding: 12px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
 
-/* Hide the old static text elements that are overlapping */
-.resultPage > p, .resultPage > span {
-    display: none !important;
-}
+button { padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin: 5px; }
+.nextBtn, .startBtn { background: #27ae60; color: white; }
+.submitBtn { background: #e74c3c; color: white; }
+
+/* The Overlap Fix */
+.score-card { background: #fff; border: 2px solid #27ae60; border-radius: 15px; padding: 20px; margin: 20px 0; }
+.net-score { font-size: 3rem; font-weight: bold; color: #2c3e50; display: block; }
+.review-box { margin-top: 20px; padding: 15px; border: 1px solid #eee; border-radius: 10px; text-align: left; background: #fafafa; }

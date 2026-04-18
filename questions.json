@@ -1,58 +1,32 @@
 [
   {
-    "number": 1,
-    "question": "What does HTML stand for?",
-    "options": [
-      "Hyper Text Markup Language",
-      "Hyperlinks and Text Markup Language",
-      "Home Tool Markup Language",
-      "Markup Hyper Text Language"
-    ],
-    "answer": "Hyper Text Markup Language"
+    "question": "What is the total cost of the newly inaugurated Delhi–Dehradun Economic Corridor?",
+    "options": ["Rs 8,000 crore", "Rs 10,000 crore", "Rs 12,000 crore", "Rs 15,000 crore"],
+    "answer": "Rs 12,000 crore"
   },
-    {
-    "number": 2,
-    "question": "What does CSS stand for?",
-    "options": [
-      "Cascading Style Sheets",
-      "Colorful Style Sheets",
-      "Computer Style Sheets",
-      "Creative Style Sheets"
-    ],
-    "answer": "Cascading Style Sheets"
+  {
+    "question": "The Delhi-Dehradun Economic Corridor features a wildlife elevated section of what length?",
+    "options": ["5 km", "12 km", "20 km", "8 km"],
+    "answer": "12 km"
   },
-    {
-    "number": 3,
-    "question": "What does JS stand for?",
-    "options": [
-      "JavaScript",
-      "JavaServer Pages",
-      "JSON",
-      "JQuery"
-    ],
-    "answer": "JavaScript"
+  {
+    "question": "Which National Park's eco-sensitive zone does the Delhi-Dehradun corridor pass through?",
+    "options": ["Jim Corbett National Park", "Rajaji National Park", "Valley of Flowers", "Nanda Devi"],
+    "answer": "Rajaji National Park"
   },
-    {
-    "number": 4,
-    "question": "What does JSON stand for?",
-    "options": [
-      "JavaScript Object Notation",
-      "JavaServer Object Notation",
-      "JSON Object Notation",
-      "JQuery Object Notation"
-    ],
-    "answer": "JavaScript Object Notation"
+  {
+    "question": "The Delhi–Dehradun Economic Corridor is designed to reduce travel time to approximately how many hours?",
+    "options": ["4 hours", "3.5 hours", "2.5 hours", "5 hours"],
+    "answer": "2.5 hours"
   },
-    {
-    "number": 5,
-    "question": "What does JQuery stand for?",
-    "options": [
-      "JavaScript Object Notation",
-      "JavaServer Object Notation",
-      "JSON Object Notation",
-      "JQuery Object Notation"
-    ],
-    "answer": "JQuery Object Notation"
+  {
+    "question": "What is the total length of the six-lane Delhi–Dehradun Economic Corridor?",
+    "options": ["150 km", "213 km", "300 km", "250 km"],
+    "answer": "213 km"
+  },
+  {
+    "question": "Which ministry notified the establishment of the Rs. 10,000 Crore Startup India Fund of Funds 2.0?",
+    "options": ["Ministry of Finance", "Ministry of MSME", "Ministry of Commerce and Industry", "Ministry of Electronics and IT"],
+    "answer": "Ministry of Commerce and Industry"
   }
 ]
-

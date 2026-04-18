@@ -1,32 +1,202 @@
 [
   {
-    "question": "What is the total cost of the newly inaugurated Delhi–Dehradun Economic Corridor?",
-    "options": ["Rs 8,000 crore", "Rs 10,000 crore", "Rs 12,000 crore", "Rs 15,000 crore"],
-    "answer": "Rs 12,000 crore"
+    "question": "As per World Bank data, what is India's Gross Domestic Expenditure on R&D (GERD) as a percentage of GDP?",
+    "options": ["0.45%", "0.64%", "0.82%", "1.1%"],
+    "answer": "0.64%"
   },
   {
-    "question": "The Delhi-Dehradun Economic Corridor features a wildlife elevated section of what length?",
-    "options": ["5 km", "12 km", "20 km", "8 km"],
-    "answer": "12 km"
+    "question": "Which body was replaced by the National Institution for Transforming India (NITI) Aayog in 2015?",
+    "options": ["Finance Commission", "National Development Council", "Planning Commission", "Inter-State Council"],
+    "answer": "Planning Commission"
   },
   {
-    "question": "Which National Park's eco-sensitive zone does the Delhi-Dehradun corridor pass through?",
-    "options": ["Jim Corbett National Park", "Rajaji National Park", "Valley of Flowers", "Nanda Devi"],
-    "answer": "Rajaji National Park"
+    "question": "Who is the current CEO of NITI Aayog as of April 2026?",
+    "options": ["B.V.R. Subrahmanyam", "Nidhi Chhibber", "Suman Bery", "Amitabh Kant"],
+    "answer": "Nidhi Chhibber"
   },
   {
-    "question": "The Delhi–Dehradun Economic Corridor is designed to reduce travel time to approximately how many hours?",
-    "options": ["4 hours", "3.5 hours", "2.5 hours", "5 hours"],
-    "answer": "2.5 hours"
+    "question": "The Dept of Posts signed an MoU with which museum to preserve India's democratic heritage on April 14, 2026?",
+    "options": ["National Museum", "Pradhan Mantri Sangrahalaya", "Indian Museum", "Salar Jung Museum"],
+    "answer": "Pradhan Mantri Sangrahalaya"
   },
   {
-    "question": "What is the total length of the six-lane Delhi–Dehradun Economic Corridor?",
-    "options": ["150 km", "213 km", "300 km", "250 km"],
-    "answer": "213 km"
+    "question": "The philatelic exhibition inaugurated by Jyotiraditya Scindia in New Delhi was titled?",
+    "options": ["Vibrant India", "Digital India", "Ek Bharat, Shreshtha Bharat", "Atmanirbhar Bharat"],
+    "answer": "Ek Bharat, Shreshtha Bharat"
   },
   {
-    "question": "Which ministry notified the establishment of the Rs. 10,000 Crore Startup India Fund of Funds 2.0?",
-    "options": ["Ministry of Finance", "Ministry of MSME", "Ministry of Commerce and Industry", "Ministry of Electronics and IT"],
-    "answer": "Ministry of Commerce and Industry"
+    "question": "The Ministry of Labour & Employment signed MoUs with which two companies for job matching on the NCS portal?",
+    "options": ["Zomato & Swiggy", "Porter & Gigin Technologies", "Dunzo & Uber", "Blinkit & Zepto"],
+    "answer": "Porter & Gigin Technologies"
+  },
+  {
+    "question": "How many annual job opportunities does Porter aim to create via the NCS portal by 2030?",
+    "options": ["10 lakh", "20 lakh", "30 lakh", "50 lakh"],
+    "answer": "30 lakh"
+  },
+  {
+    "question": "What is the name of the first border village community radio station launched by the Indian Army in Sikkim?",
+    "options": ["Sikkim Sangam", "Radio Sikkim Sundari", "Trishakti FM", "Border Voice"],
+    "answer": "Radio Sikkim Sundari"
+  },
+  {
+    "question": "What is the frequency of the 'Sikkim Sundari' radio station launched by the Trishakti Corps?",
+    "options": ["91.1 FM", "88.4 FM", "104.8 FM", "98.3 FM"],
+    "answer": "88.4 FM"
+  },
+  {
+    "question": "Under which scheme is the Sikkim Sundari radio station initiative linked?",
+    "options": ["Border Area Development Program", "Vibrant Villages Programme", "PM-DevINE", "SAGAR"],
+    "answer": "Vibrant Villages Programme"
+  },
+  {
+    "question": "The IAF signed an agreement with GE Aerospace to set up a depot for which aircraft engines?",
+    "options": ["F414", "F404-IN20", "AL-31FP", "RD-33"],
+    "answer": "F404-IN20"
+  },
+  {
+    "question": "How many F404 engines does GE Aerospace plan to deliver to India by December 2026?",
+    "options": ["10", "15", "20", "25"],
+    "answer": "20"
+  },
+  {
+    "question": "What is the approximate value of the deal between HAL and GE Aerospace for 113 jet engines?",
+    "options": ["Rs 5,500 crore", "Rs 8,870 crore", "Rs 10,200 crore", "Rs 12,000 crore"],
+    "answer": "Rs 8,870 crore"
+  },
+  {
+    "question": "Where was the 9th Indian Ocean Conference (IOC 2026) held?",
+    "options": ["New Delhi, India", "Muscat, Oman", "Port Louis, Mauritius", "Colombo, Sri Lanka"],
+    "answer": "Port Louis, Mauritius"
+  },
+  {
+    "question": "What was the theme for the 9th Indian Ocean Conference (IOC 2026)?",
+    "options": ["Peace in IOR", "Collective Stewardship for Indian Ocean Governance", "SAGAR for All", "Maritime Security 2026"],
+    "answer": "Collective Stewardship for Indian Ocean Governance"
+  },
+  {
+    "question": "In which country was the 8th Indian Ocean Conference (IOC 2025) held?",
+    "options": ["Mauritius", "India", "Oman", "Thailand"],
+    "answer": "Oman"
+  },
+  {
+    "question": "Who represented India at the 9th Indian Ocean Conference in Mauritius?",
+    "options": ["Narendra Modi", "Dr. S. Jaishankar", "Rajnath Singh", "Amit Shah"],
+    "answer": "Dr. S. Jaishankar"
+  },
+  {
+    "question": "As per Worldline Report 2025, how many UPI transactions were processed in India in 2025?",
+    "options": ["172.2 billion", "200.5 billion", "228.5 billion", "250.0 billion"],
+    "answer": "228.5 billion"
+  },
+  {
+    "question": "What was the year-on-year (Y-o-Y) increase in the number of UPI transactions in 2025?",
+    "options": ["25%", "33%", "40%", "15%"],
+    "answer": "33%"
+  },
+  {
+    "question": "What was the total value of UPI transactions in India in the year 2025?",
+    "options": ["Rs 199.5 trillion", "Rs 250.2 trillion", "Rs 299.74 trillion", "Rs 350.0 trillion"],
+    "answer": "Rs 299.74 trillion"
+  },
+  {
+    "question": "According to Worldline, what was the Average Ticket Size (ATS) of all UPI transactions in 2025?",
+    "options": ["Rs 1,437", "Rs 1,314", "Rs 592", "Rs 1,000"],
+    "answer": "Rs 1,314"
+  },
+  {
+    "question": "What was the Average Ticket Size (ATS) specifically for UPI merchant payments in 2025?",
+    "options": ["Rs 1,314", "Rs 850", "Rs 592", "Rs 450"],
+    "answer": "Rs 592"
+  },
+  {
+    "question": "How many PoS (Point-of-Sale) terminals were in place in India by the end of 2025?",
+    "options": ["5.5 million", "8.2 million", "11.48 million", "15.0 million"],
+    "answer": "11.48 million"
+  },
+  {
+    "question": "The total number of cards in circulation in India crossed which milestone in 2025?",
+    "options": ["1 billion", "1.25 billion", "1.62 billion", "2 billion"],
+    "answer": "1.62 billion"
+  },
+  {
+    "question": "Which payment method saw a 23% decline in volumes as small-value transactions shifted to UPI?",
+    "options": ["Credit Cards", "Debit Cards", "Net Banking", "Cash"],
+    "answer": "Debit Cards"
+  },
+  {
+    "question": "Bharat Bill Payment System (BBPS) processed Rs 14.8 trillion in which period of 2025?",
+    "options": ["Full Year", "First Quarter (Q1)", "First Half (H1)", "Last Quarter (Q4)"],
+    "answer": "First Half (H1)"
+  },
+  {
+    "question": "Who is the current Prime Minister of Mauritius?",
+    "options": ["Pravind Jugnauth", "Dr. Navinchandra Ramgoolam", "Prithvirajsing Roopun", "Ameenah Gurib"],
+    "answer": "Dr. Navinchandra Ramgoolam"
+  },
+  {
+    "question": "The Indian Army's 'Radio Sangam (88.8 FM)' is located in which region?",
+    "options": ["Sikkim", "Rajouri, J&K", "Ladakh", "Uttarakhand"],
+    "answer": "Rajouri, J&K"
+  },
+  {
+    "question": "The F404-IN20 engine has a thrust class of approximately?",
+    "options": ["10,000 lb", "15,000 lb", "19,000 lb", "25,000 lb"],
+    "answer": "19,000 lb"
+  },
+  {
+    "question": "Which organization jointly organized IOC 2026 along with the Government of Mauritius?",
+    "options": ["Observer Research Foundation", "India Foundation", "NITI Aayog", "ISRO"],
+    "answer": "India Foundation"
+  },
+  {
+    "question": "As of April 2026, how many active vacancies are hosted on the National Career Service (NCS) portal?",
+    "options": ["2 lakh", "5 lakh", "7 lakh", "10 lakh"],
+    "answer": "7 lakh"
+  },
+  {
+    "question": "Gigin Technologies uses what technology to ensure job listings are authentic?",
+    "options": ["Blockchain", "AI-powered 'Verification Intelligence'", "Manual Verification", "Biometric Scans"],
+    "answer": "AI-powered 'Verification Intelligence'"
+  },
+  {
+    "question": "The Pradhan Mantri Sangrahalaya is located at which estate in New Delhi?",
+    "options": ["Rashtrapati Bhavan", "Teen Murti Estate", "Lodhi Estate", "Chanakyapuri"],
+    "answer": "Teen Murti Estate"
+  },
+  {
+    "question": "How many job seekers are registered on the NCS portal as of April 2026?",
+    "options": ["1 crore", "3 crore", "6 crore", "10 crore"],
+    "answer": "6 crore"
+  },
+  {
+    "question": "In which state is the 'Ibex Tarana' radio station located?",
+    "options": ["Sikkim", "Jammu & Kashmir", "Uttarakhand", "Arunachal Pradesh"],
+    "answer": "Uttarakhand"
+  },
+  {
+    "question": "Who is the current Union Minister of Labour & Employment?",
+    "options": ["Dr. Mansukh Mandaviya", "Ashwini Vaishnaw", "Nirmala Sitharaman", "Piyush Goyal"],
+    "answer": "Dr. Mansukh Mandaviya"
+  },
+  {
+    "question": "What is the currency of Mauritius?",
+    "options": ["US Dollar", "Mauritian Rupee", "Euro", "Pound Sterling"],
+    "answer": "Mauritian Rupee"
+  },
+  {
+    "question": "The BBPS processed Rs 14.8 trillion in H1 2025, which was an increase of ___ over the previous period?",
+    "options": ["50%", "75%", "93%", "100%"],
+    "answer": "93%"
+  },
+  {
+    "question": "India's R&D expenditure is dominated by the public sector, which accounts for more than what % of total spend?",
+    "options": ["25%", "40%", "50%", "75%"],
+    "answer": "50%"
+  },
+  {
+    "question": "The total value of credit card transactions in 2025 crossed which amount?",
+    "options": ["Rs 10 trillion", "Rs 15.5 trillion", "Rs 23.65 trillion", "Rs 30 trillion"],
+    "answer": "Rs 23.65 trillion"
   }
 ]

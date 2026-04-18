@@ -1,13 +1,16 @@
 function showResults() {
   clearInterval(intervalId);
+  
+  // 1. Final Answer Save
   const selected = document.querySelector('input[name="quizOpt"]:checked');
   if(index < questions.length) answers[index] = selected ? selected.value : "Not Answered";
 
+  // 2. Hide Quiz Page
   document.querySelector(".quizzPage").style.display = "none";
   const resultPage = document.querySelector(".resultPage");
   resultPage.style.display = "block";
 
-  // 1. Calculate Scores
+  // 3. Calculate Scores
   let correctCount = 0;
   let wrongCount = 0;
   questions.forEach((q, i) => {
@@ -16,49 +19,40 @@ function showResults() {
   });
   let netScore = (correctCount * 1) - (wrongCount * 0.25);
 
-  // 2. Wipe the old overlapping UI and replace with a clean card
-  const scoreBox = document.getElementById("userScore");
-  
-  // This hides the old "Net Score:" text and the circle container
-  scoreBox.parentElement.style.display = "flex";
-  scoreBox.parentElement.style.flexDirection = "column";
-  scoreBox.parentElement.style.alignItems = "center";
-  
-  scoreBox.innerHTML = `
-    <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; border: 1px solid #dee2e6; width: 90%; margin: 10px auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-      <h2 style="margin: 0 0 15px 0; color: #333; font-size: 1.5rem;">Quiz Summary</h2>
+  // 4. THE FIX: Wipe everything inside .resultPage to stop the overlap
+  resultPage.innerHTML = `
+    <div style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px;">
+      <h1 style="color: #2c3e50; margin-bottom: 20px;">Quiz Completed!</h1>
       
-      <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-        <div style="text-align: center;">
-          <p style="margin: 0; color: #27ae60; font-size: 0.9rem; font-weight: bold;">CORRECT</p>
-          <p style="margin: 5px 0; font-size: 1.4rem;">${correctCount}</p>
+      <div style="background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); padding: 30px; max-width: 400px; margin: 0 auto; border: 1px solid #e1e4e8;">
+        <div style="display: flex; justify-content: space-around; margin-bottom: 25px;">
+          <div>
+            <p style="margin: 0; color: #27ae60; font-weight: bold; font-size: 0.8rem;">CORRECT</p>
+            <p style="margin: 5px 0; font-size: 1.5rem; font-weight: bold;">${correctCount}</p>
+          </div>
+          <div style="border-left: 1px solid #eee;"></div>
+          <div>
+            <p style="margin: 0; color: #e74c3c; font-weight: bold; font-size: 0.8rem;">WRONG</p>
+            <p style="margin: 5px 0; font-size: 1.5rem; font-weight: bold;">${wrongCount}</p>
+          </div>
         </div>
-        <div style="text-align: center;">
-          <p style="margin: 0; color: #e74c3c; font-size: 0.9rem; font-weight: bold;">WRONG</p>
-          <p style="margin: 5px 0; font-size: 1.4rem;">${wrongCount}</p>
-        </div>
-        <div style="text-align: center;">
-          <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem; font-weight: bold;">TOTAL</p>
-          <p style="margin: 5px 0; font-size: 1.4rem;">${questions.length}</p>
+
+        <div style="background: #f8f9fa; border-radius: 15px; padding: 20px;">
+          <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem; letter-spacing: 1px;">NET SCORE</p>
+          <p style="margin: 10px 0 0 0; font-size: 3.5rem; font-weight: 800; color: #2c3e50;">${netScore.toFixed(2)}</p>
+          <p style="margin: 0; color: #bdc3c7;">out of ${questions.length}</p>
         </div>
       </div>
 
-      <div style="border-top: 2px solid #fff; padding-top: 15px; background: #fff; border-radius: 10px; padding: 15px;">
-        <p style="margin: 0; color: #2c3e50; font-size: 1rem; font-weight: bold;">NET SCORE</p>
-        <p style="margin: 5px 0; font-size: 3.5rem; color: #2c3e50; font-weight: 900;">${netScore.toFixed(2)}</p>
+      <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+        <button onclick="location.reload()" style="padding: 12px 25px; border-radius: 50px; border: none; background: #3498db; color: white; font-weight: bold; cursor: pointer;">Replay Quiz</button>
+        <button onclick="window.location.href='https://github.com'" style="padding: 12px 25px; border-radius: 50px; border: 1px solid #3498db; background: white; color: #3498db; font-weight: bold; cursor: pointer;">Quit</button>
       </div>
+
+      <div id="reviewBox"></div>
     </div>
   `;
 
-  // Hide the static elements that are causing the overlap
-  const elementsToHide = resultPage.querySelectorAll('p, span');
-  elementsToHide.forEach(el => {
-    if(el.textContent.includes("Score") || el.textContent.includes("/") || el.id === "totalScore") {
-      el.style.opacity = "0"; 
-      el.style.height = "0";
-      el.style.margin = "0";
-    }
-  });
-
+  // 5. Build the Review Slides
   startReview();
 }

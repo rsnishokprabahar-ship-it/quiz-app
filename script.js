@@ -1,11 +1,15 @@
+let questions = [];
+let index = 0;
+let answers = [];
+let intervalId = null;
+
 fetch("questions.json")
-  .then((repoonse) => repoonse.json())
+  .then((response) => response.json())
   .then((data) => {
     questions = data;
-    console.log(data);
-    console.log(questions.length);
+    setQuestionStats();
   })
-  .catch((error) => console.error(error));
+  .catch((error) => console.error("Error loading questions:", error));
 
 document.getElementById("startBtn").addEventListener("click", function () {
   let username = document.getElementById("userName").value;
@@ -15,131 +19,86 @@ document.getElementById("startBtn").addEventListener("click", function () {
     return;
   }
   document.querySelector(".userText").textContent = username;
-  console.log(username);
   document.querySelector(".loginPage").style.display = "none";
   document.querySelector(".quizzPage").style.display = "block";
-  setTimerOn();
-  setQuestionStats();
   loadQuestions();
 });
 
 document.querySelector(".nextBtn").addEventListener("click", function () {
-  getSelectedAnswer(index);
+  const selected = document.querySelector(`input[name="question${index}"]:checked`);
+  answers[index] = selected ? selected.value : "No Answer";
+  
   index++;
-  setQuestionStats();
-  loadQuestions();
+  if (index < questions.length) {
+    loadQuestions();
+    setQuestionStats();
+  } else {
+    showResults();
+  }
 });
 
-//set question stats
 function setQuestionStats() {
-  document.getElementById("questionStat").textContent = `${index + 1}/${
-    questions.length
-  }`;
+  document.getElementById("questionStat").textContent = `${index + 1}/${questions.length}`;
 }
 
 function setTimerOn() {
   clearInterval(intervalId);
-  let time = 29;
+  let time = 30;
   intervalId = setInterval(() => {
-    if (time == -1 && index < questions.length) {
+    if (time <= 0) {
       clearInterval(intervalId);
-      index++;
-      loadQuestions();
-      setQuestionStats();
+      document.querySelector(".nextBtn").click();
     } else {
-      document.querySelector(".timer").textContent = `00:${time}`;
+      document.querySelector(".timer").textContent = `00:${time < 10 ? '0' + time : time}`;
       time--;
     }
   }, 1000);
 }
 
 function loadQuestions() {
-  if (index < questions.length) {
-    setTimerOn();
-    document.querySelector(".quizzContainer").innerHTML = `
-       <div class="questionText">
-            <p>${questions[index].question}</p>
-          </div>
-          
-          <div class="quizes">
-            <div class="questions">
-              <label>
-                <input type="radio" name="question${index}" value="${questions[index].options[0]}" />
-                ${questions[index].options[0]}
-
-              </label>
-            </div>
-            <div class="questions">
-              <label>
-                <input type="radio" name="question${index}" value="${questions[index].options[1]}" />
-                ${questions[index].options[1]}
-              </label>
-            </div>
-            <div class="questions">
-              <label>
-                <input type="radio" name="question${index}" value="${questions[index].options[2]}" />
-                ${questions[index].options[2]}
-              </label>
-            </div>
-            <div class="questions">
-              <label>
-                <input type="radio" name="question${index}" value="${questions[index].options[3]}" />
-                ${questions[index].options[3]}
-              </label>
-            </div>
-          </div>
-  `;
-  } else {
-    document.querySelector(".quizzPage").style.display = "none";
-    document.querySelector(".resultPage").style.display = "block";
-    validateResults();
-    console.log("load questions",answers);
-  }
+  setTimerOn();
+  const q = questions[index];
+  document.querySelector(".quizzContainer").innerHTML = `
+    <div class="questionText"><p>${q.question}</p></div>
+    <div class="quizes">
+      ${q.options.map(opt => `
+        <div class="questions">
+          <label><input type="radio" name="question${index}" value="${opt}" /> ${opt}</label>
+        </div>`).join('')}
+    </div>`;
 }
 
-function getSelectedAnswer(index) {
-  let answer = document.getElementsByName(`question${index}`);
-  for(index of answer){
-    if(index.checked){
-       answers.push(index.value);
-      console.log(index.value);
-      
-    }
-  }
-}
-
-function validateResults(){
-  console.log("called validateresults");
+function showResults() {
+  clearInterval(intervalId);
+  document.querySelector(".quizzPage").style.display = "none";
+  document.querySelector(".resultPage").style.display = "block";
   
-  let score =0 ;
-  for(let i =0; i<questions.length; i++){
-    if(answers[i] == questions[i].answer){
-      score++;
-    }
-  }
+  let score = 0;
+  let reviewHtml = "<h3>Review Your Answers:</h3>";
+  
+  questions.forEach((q, i) => {
+    const isCorrect = answers[i] === q.answer;
+    if (isCorrect) score++;
+    
+    reviewHtml += `
+      <div style="margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #ddd;">
+        <p><strong>Q${i+1}: ${q.question}</strong></p>
+        <p style="color: ${isCorrect ? 'green' : 'red'}">Your Answer: ${answers[i]}</p>
+        ${!isCorrect ? `<p style="color: green">Correct Answer: ${q.answer}</p>` : ''}
+      </div>`;
+  });
+
   document.getElementById("userScore").textContent = score;
-  console.log("score",score);
-  
   document.getElementById("totalScore").textContent = questions.length;
+  
+  // Create a review div if it doesn't exist
+  let reviewDiv = document.getElementById("reviewContainer");
+  if(!reviewDiv) {
+    reviewDiv = document.createElement("div");
+    reviewDiv.id = "reviewContainer";
+    document.querySelector(".resultPage").appendChild(reviewDiv);
+  }
+  reviewDiv.innerHTML = reviewHtml;
 }
 
-  document.querySelector(".replayBtn").addEventListener('click',function(){
-    document.querySelector(".resultPage").style.display = "none";
-    document.querySelector(".quizzPage").style.display = "block";
-    index = 0;
-    answers = [];
-    setQuestionStats();
-    loadQuestions();
-  })
-
-  document.querySelector(".quitBtn").addEventListener('click',function(){
-    document.querySelector(".resultPage").style.display = "none";
-    document.querySelector(".loginPage").style.display = "flex";
-    index = 0;
-    answers = [];
-  })
-
-let questions;
-let index = 0;
-let answers = [];
-let intervalId = null;
+document.querySelector(".replayBtn").addEventListener('click', () => location.reload());

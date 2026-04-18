@@ -1,70 +1,92 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-body { background: #f0f2f5; padding: 15px; display: flex; justify-content: center; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 
-#app-container { 
-    width: 100%; 
-    max-width: 450px; 
-    background: white; 
-    border-radius: 20px; 
-    padding: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-/* Fix for those huge images */
-img { 
-    max-width: 80%; 
-    height: auto; 
-    margin-bottom: 20px; 
-    border-radius: 10px;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Input Styling */
-input[type="text"] {
-    width: 80%;
-    padding: 12px;
+.loginPage, .quizzPage, .resultPage {
+    display: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* This was the circle - I made it a bit taller to fit the new score */
+#userScore {
+    width: 220px;
+    height: 220px;
+    border: 10px solid #7ed321;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Question Styling */
+.questionText {
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
     margin-bottom: 15px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    font-size: 1rem;
 }
 
-/* Button Styling */
-button { 
-    padding: 12px 25px; 
-    border: none; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    font-weight: bold; 
-    font-size: 1rem;
-    transition: 0.3s;
+.questions {
+    text-align: left;
+    margin-bottom: 10px;
 }
 
-.startBtn { background: #27ae60; color: white; width: 80%; }
-.startBtn:hover { background: #219150; }
-
-/* Result Card Fix */
-.score-card { 
-    background: #f8f9fa; 
-    border: 2px solid #27ae60; 
-    border-radius: 15px; 
-    padding: 25px; 
-    margin: 20px 0; 
+.questions label {
+    display: block;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.net-score { 
-    font-size: 3.5rem; 
-    font-weight: 900; 
-    color: #2c3e50; 
-    display: block; 
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #7ed321;
+    color: white;
+    font-weight: bold;
 }
 
-/* Review Area */
-.review-box { 
-    text-align: left; 
-    background: #fff; 
-    border: 1px solid #eee; 
-    padding: 15px; 
-    border-radius: 10px; 
+/* Review Slide CSS */
+.review-container {
     margin-top: 20px;
+    text-align: left;
+    padding: 15px;
+    border-top: 2px solid #eee;
 }

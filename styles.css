@@ -1,20 +1,70 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-body { background: #f4f4f4; padding: 20px; display: flex; justify-content: center; }
-#app-container { width: 100%; max-width: 450px; background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #f0f2f5; padding: 15px; display: flex; justify-content: center; }
 
-.loginPage, .quizzPage, .resultPage { display: none; text-align: center; }
-.header { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: bold; }
-.timer { color: red; }
+#app-container { 
+    width: 100%; 
+    max-width: 450px; 
+    background: white; 
+    border-radius: 20px; 
+    padding: 20px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    text-align: center;
+}
 
-.questionText { font-size: 1.2rem; margin-bottom: 20px; text-align: left; }
-.questions { margin-bottom: 10px; text-align: left; }
-.questions label { display: block; padding: 12px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
+/* Fix for those huge images */
+img { 
+    max-width: 80%; 
+    height: auto; 
+    margin-bottom: 20px; 
+    border-radius: 10px;
+}
 
-button { padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin: 5px; }
-.nextBtn, .startBtn { background: #27ae60; color: white; }
-.submitBtn { background: #e74c3c; color: white; }
+/* Input Styling */
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+}
 
-/* The Overlap Fix */
-.score-card { background: #fff; border: 2px solid #27ae60; border-radius: 15px; padding: 20px; margin: 20px 0; }
-.net-score { font-size: 3rem; font-weight: bold; color: #2c3e50; display: block; }
-.review-box { margin-top: 20px; padding: 15px; border: 1px solid #eee; border-radius: 10px; text-align: left; background: #fafafa; }
+/* Button Styling */
+button { 
+    padding: 12px 25px; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.startBtn { background: #27ae60; color: white; width: 80%; }
+.startBtn:hover { background: #219150; }
+
+/* Result Card Fix */
+.score-card { 
+    background: #f8f9fa; 
+    border: 2px solid #27ae60; 
+    border-radius: 15px; 
+    padding: 25px; 
+    margin: 20px 0; 
+}
+
+.net-score { 
+    font-size: 3.5rem; 
+    font-weight: 900; 
+    color: #2c3e50; 
+    display: block; 
+}
+
+/* Review Area */
+.review-box { 
+    text-align: left; 
+    background: #fff; 
+    border: 1px solid #eee; 
+    padding: 15px; 
+    border-radius: 10px; 
+    margin-top: 20px;
+}

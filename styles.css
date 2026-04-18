@@ -1,121 +1,27 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, sans-serif;
-}
-
-body {
-    background-color: #f4f7f6;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-#app-container {
-    width: 100%;
-    max-width: 500px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    overflow: hidden;
-}
-
-/* Page Control */
-.loginPage, .quizzPage, .resultPage {
-    padding: 25px;
-    display: none;
-}
-
-/* Header & Timer */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.timer {
-    font-weight: bold;
-    color: #e74c3c;
-    font-size: 1.2rem;
-}
-
-/* Question Area */
-.questionText {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.questions {
-    margin-bottom: 12px;
-}
-
-.questions label {
-    display: block;
-    padding: 12px;
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.questions label:active {
-    background: #e9ecef;
-}
-
-/* Buttons */
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nextBtn, .startBtn, .replayBtn {
-    background-color: #27ae60;
-    color: white;
-}
-
-.submitBtn {
-    background-color: #e74c3c;
-    color: white;
-}
-
-/* Result Card - THE OVERLAP FIX */
-.result-card {
+/* Update the score display area */
+.resultPage {
     text-align: center;
-    background: #fff;
-}
-
-.score-container {
-    background: #f8f9fa;
-    border-radius: 15px;
     padding: 20px;
-    margin: 20px 0;
 }
 
-.net-score-val {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: #2c3e50;
+/* This replaces the tight circle with a flexible card */
+#userScore {
     display: block;
+    background: #ffffff;
+    border: 2px solid #27ae60;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 300px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Review Section */
-.review-slide {
-    margin-top: 30px;
-    padding: 15px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    text-align: left;
+#userScore div {
+    margin: 10px 0;
+}
+
+/* Hide the old static text elements that are overlapping */
+.resultPage > p, .resultPage > span {
+    display: none !important;
 }
